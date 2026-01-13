@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        let nome = window.prompt('qual é o seu nome?') // caixa de texto
+        let salario = window.prompt('qual é o seu salário?') 
+        salario = Number(salario).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})// converter para número e formatar como moeda brasileira podendo trocar o BRL por outra moeda
+        document.write(`seu nome tem ${nome.length} letras<br> e seu salário é ${salario}`)
+        
+       
+    </script>
+</body>
+</html> 

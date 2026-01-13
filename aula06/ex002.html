@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="../aula04/estilos/style.css">
 </head>
 <body>
     <header id="cabecalho">
@@ -24,9 +24,8 @@
     </footer>
     <!--AQUI COMEÇA O JAVASCRIPT-->
     <script>
-        window.alert('olá mundo')
-        window.confirm('deseja continnuar?')
-        window.prompt('qual é o seu nome?') 
+        var nome = window.prompt('qual é o seu nome?') // caixa de texto
+        window.alert('seja bem-vindo, ' + nome + '!') // + usado para concatenar
     </script>
 </body>
 </html>
