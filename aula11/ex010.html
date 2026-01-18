@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendendo condições</title>
+    <style>
+        .corvermelha {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de multas(DETRANRJ)</h1>
+    Velocidade do carro: <input type="number" name="txtvel" id="txtvel"> Km/h
+    <input type="button" value="verificar" onclick="calcular()">
+    <div id="res">
+
+    </div>
+
+    <script>
+        //a função começa a rodar quando o botão"calcular"é clicado
+        function calcular() {
+            var txtv = window.document.querySelector('input#txtvel')//vai na arvore(DOM) e seleciona o o input selecionado com o ID escolhido.
+            var res = window.document.querySelector('div#res')
+            var vel = Number(txtv.value)
+            res.innerHTML = `<p>Sua velocidade é de <strong> ${vel} Km/h</strong></p>`
+            if (vel > 60) {
+                res.innerHTML += `<p >velocidade acima do permitido, você sera <strong class ="corvermelha">MULTADO!</strong></p>` 
+            }
+            res.innerHTML += `<p>Dirija sempre com cinto de segurança</p>`
+        }
+        
+    </script>
+
+</body>
+</html>

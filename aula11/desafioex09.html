@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio proposto na aula 11</title>
+</head>
+<body>
+    <h1>Teste de estrangeiro</h1>
+    Qual é o seu país? <input type="text" name="txtpais" id="txtpais">
+    <input type="button" value="confirmar" id="btconfirmar">
+    <div id="res">
+    </div>
+
+    <script>
+        var res = window.document.querySelector('div#res')
+        var botao = window.document.querySelector('input#btconfirmar')
+        botao.addEventListener('click', clicar)
+        function clicar() {
+            var pais = window.document.querySelector('input#txtpais').value // se n tiver o . value no final ele puxa o input e não o valor digitado nele, que pode ser numero ou string, quando vc for converder o dado o .value fica na conversão
+            if (pais == 'brasil' || pais == 'Brasil' ) {
+                res.innerHTML = `Você é <strong>BRASILEIRO!</strong>`
+                 
+            }else {
+                res.innerHTML = `Você é <strong>ESTRANGEIRO!</strong>`
+            }
+            
+        }
+    </script>
+    
+</body>
+</html>
