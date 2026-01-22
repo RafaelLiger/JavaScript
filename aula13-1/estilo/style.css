@@ -18,7 +18,11 @@ section {
     margin: auto;
     box-shadow:  2px 4px 9px 0px rgba(0, 0, 0, 0.308);
 }
-div {
+div#res {
+    display: flex;
+    flex-flow: column-reverse wrap;
+    align-items: center;
+    justify-content: center;
 
 }
 footer {
