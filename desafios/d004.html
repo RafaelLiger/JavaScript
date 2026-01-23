@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D004</title>
+    <style>
+        body {
+            background-color: bisque;
+            
+        }
+        input {
+            padding: 20px;
+            border-radius: 20px;
+        }
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: aliceblue;
+            width: 500px;
+            height: 500px;
+            padding-top: 10px;
+            border-radius: 50%;
+            background-color: black;
+            }
+        div > input:hover {
+            background-color:rgba(255, 0, 0, 0.233);
+            color: aliceblue;
+            align-items: baseline;
+            border: none;
+           
+        }    
+    </style>
+</head>
+<body>
+    <h1>Troco</h1>
+    <div id="fundo">
+        <input type="button" value="Calcular Troco" id="calc">
+    </div>
+
+    <script>
+        let calc = document.querySelector('#calc')
+        calc.addEventListener('click', calcular)
+        let res = 0
+        calc.addEventListener('mouseenter', () => {
+            fundo.style.backgroundImage = "url('imagens/love.gif')"
+            fundo.style.backgroundSize ='cover'
+            
+             })
+        calc.addEventListener('mouseleave', () => {
+            fundo.style.backgroundImage = 'none'    
+        })
+           
+
+        function calcular() {
+            let nomep = prompt('Que produto você está comprando?')
+            let preco = Number(prompt(`Quanto custa o(a) ${nomep} que você está comprando?`))
+            let pag = Number(prompt(`Quanto você deu para pagar o ${nomep}?`))
+            
+            res = pag - preco
+            if (res < 0) { 
+              alert(`Você comprou um(a) ${nomep} por R$ ${preco.toFixed(2).replace('.', ',')}.\n Deu ${pag.toFixed(2).replace('.', ',')} em dinheiro e falta R$ ${Math.abs(res).toFixed(2).replace('.', ',')} para o valor do produto.`)
+                
+            }else {
+            alert(`Você comprou um(a) ${nomep} por R$ ${preco.toFixed(2).replace('.', ',')}.\n Deu ${pag.toFixed(2).replace('.', ',')} em dinheiro e vai receber R$ ${res.toFixed(2).replace('.', ',')} de troco. \n Volte sempre! `)
+            }
+
+        }
+    </script>
+</body>
+</html>
