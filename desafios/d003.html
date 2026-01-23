@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D003</title>
+    <style>
+        input {
+            padding: 20px;
+            margin-left: 20px;
+        }
+        input:hover {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>Antes e Depois</h1>
+    <input type="button" value="Antes e depois" id="clicar">
+
+    <script>
+        let calcular = document.querySelector('#clicar')
+        calcular.addEventListener('click', clicar )
+        function clicar() {
+            let subtracao = 0
+            let adicao = 0
+            let num = prompt('Digite um número inteiro qualquer:')
+            numdig = num
+            subtracao = Number(num) - 1
+            adicao = Number(num) + 2
+            alert(`Antes de ${numdig}, temos o número ${subtracao}.\n Depois de ${numdig}, temos o número ${adicao}.`)
+        }
+
+    </script>
+</body>
+</html> 

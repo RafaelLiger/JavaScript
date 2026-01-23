@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D001</title>
+    <style>
+       body {
+        font-family: Arial, Helvetica, sans-serif;
+       }
+       input {
+        padding: 20px;
+        margin-left: 10px;
+       } 
+    </style>
+</head>
+<body>
+    <h1>Desafio das mensagens</h1>
+    <input type="button" value="Botão 1" id="b1">
+    <input type="button" value="Botão 2" id="b2">
+    <input type="button" value="Botão 3" id="b3">
+
+    <script>
+        let bt1 = document.querySelector('#b1')
+        let bt2 = document.querySelector('#b2')
+        let bt3 = document.querySelector('#b3')
+        bt1.addEventListener('click', () => alert('Botão 1'))
+        bt2.addEventListener('click', () => alert('Botão 2'))
+        bt3.addEventListener('click', () => alert('Botão 3'))
+        
+        
+    </script>
+</body>
+</html>
