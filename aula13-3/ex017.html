@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio ex</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: baseline;
+            flex-flow: column wrap;
+            background-color: rgb(38, 119, 196);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1 {
+            color: white;
+        }
+        #container {
+            height: auto;
+            background-color: white;
+            width: 500px;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        select{
+            margin-top: 20px;
+        }
+        p {
+            color:white;
+        }
+        
+    </style>
+</head>
+<body>
+   <h1>Tabuada</h1>
+   <div id="container">
+     Número: <input type="number" name="numero" id="num"> <input type="button" value="Gerar Tabuada" id="clicar"><br>
+     <select name="tabuada" size="10" id="tabu">
+        <option value="tabuada" >Digite um número acima</option>
+        
+     </select>
+   </div>
+   <p>&copy;CursoemVideo</p>
+
+   <script>
+    let botao = document.querySelector('#clicar')
+    let num = document.querySelector('#num')
+    let tabu = document.querySelector('#tabu')
+    //let ct = 1
+
+    botao.addEventListener('click', clicar)
+
+    function clicar() {
+        let n = Number(num.value)
+        let t = tabu
+       
+        if(num.value.length === 0) {
+            alert('Campo VAZIO digite um número!')
+        }else{
+            tabu.innerHTML = ''
+            for (let ct = 1; ct <=10; ct++){
+                // abaixo cria o elemento option a cada loop
+                let item = document.createElement('option')
+                item.text= `${n} X ${ct} = ${n * ct}`
+                t.appendChild(item)
+                
+            }
+        }
+    }
+   </script>
+</body>
+</html>
