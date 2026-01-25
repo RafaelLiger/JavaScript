@@ -48,13 +48,11 @@
     let num = document.querySelector('#num')
     let tabu = document.querySelector('#tabu')
     //let ct = 1
-
     botao.addEventListener('click', clicar)
 
     function clicar() {
         let n = Number(num.value)
         let t = tabu
-       
         if(num.value.length === 0) {
             alert('Campo VAZIO digite um número!')
         }else{

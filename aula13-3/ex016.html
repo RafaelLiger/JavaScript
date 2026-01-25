@@ -97,7 +97,7 @@
             let f = Number(fim.value)
             let p = Number(passo.value)
 
-            if (inicio.value.length === 0) {
+            if (inicio.value.length === 0 || fim.value.length === 0) {
                 telatxt.innerHTML = 'Impossível contar!'
                 telatxt.style.color = 'red'
                    
@@ -109,14 +109,22 @@
                 telatxt.innerHTML += `${i} \u{1F449}`    
                 }telatxt.innerHTML += '\u{1F3C1}'
 
-            }else {
+            }else if( f > i){
                 telatxt.innerHTML = ''
                 telatxt.style.color = 'black'
                 while(i <= f) {
                   telatxt.innerHTML += `${i} \u{1F449}`
-                  i = i + p    
-                }telatxt.innerHTML += '\u{1F3C1}'
+                  i += p    
+                }
+            }else {
+                telatxt.innerHTML = ''
+                telatxt.style.color = 'black'
+                while(f <= i) {
+                    telatxt.innerHTML += `${i} \u{1F449}`
+                    i -= p
+                }
             }
+            telatxt.innerHTML += '\u{1F3C1}'
             
         }
     </script>
