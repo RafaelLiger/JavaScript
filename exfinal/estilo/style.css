@@ -19,22 +19,26 @@ main {
     justify-content: center;
     
 }
-div {
+section {
     display: flex;
     flex-flow: column wrap;
     background-color: white;
     width: 500px;
     border-radius: 10px;
     padding: 10px;
-    gap : 10px
+    gap: 10px;
 }
+
 #caixanum {
   align-self: flex-start;
   width: 140px;
+  margin-top: 5px;
   
 }
 #finalizar{
-    align-self: flex-start;
+    display: block;
+    margin-top: 10px;
+
 
 }
 footer {
