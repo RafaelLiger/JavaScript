@@ -1,0 +1,44 @@
+@charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    background-color: #377dcf;
+    font-family: Arial, Helvetica, sans-serif;
+}
+header {
+    text-align: center;
+    color: white;
+}
+main {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    
+}
+div {
+    display: flex;
+    flex-flow: column wrap;
+    background-color: white;
+    width: 500px;
+    border-radius: 10px;
+    padding: 10px;
+    gap : 10px
+}
+#caixanum {
+  align-self: flex-start;
+  width: 140px;
+  
+}
+#finalizar{
+    align-self: flex-start;
+
+}
+footer {
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+}
