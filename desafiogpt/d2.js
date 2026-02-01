@@ -1,31 +1,24 @@
 
-function analisar(vet) {
-    let soma = 0
-    let maior = vet[0]
-    let menor = vet[0]
-
-    for (let pos in vet) {
-        soma += vet[pos]
-
-        if (vet[pos] > maior) {
-            maior = vet[pos]
+function parimpar (vet) {
+    let par = 0
+    let impar = 0
+    for(let pos in vet) {
+        if(vet[pos]%2 == 0){
+            par++
+        }else{
+            impar++
         }
 
-        if (vet[pos] < menor) {
-            menor = vet[pos]
-        }
     }
-
-    let media = soma / vet.length
-
-    return {
-        maior: maior,
-        menor: menor,
-        soma: soma,
-        media: media.toFixed(2)
+    
+    
+    return{
+        par : par,
+        impar : impar
+        
     }
 }
-let numeros = [3, 2, 5, 7, 8, 4]
-let resultado = analisar(numeros)
+let vet = [1,2,3,44,5,6]
+let resultado = parimpar(vet)
 
 console.log(resultado)

@@ -3,30 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercício 14</title>
-    <link rel="stylesheet" href="estilo/style.css">
+    <title>Desafio</title>
+    <style>
+         body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-flow: column wrap;
+            gap:30px;
+            color: white;
+            
+            background-color: rgb(47, 148, 206);
+            font-family: Arial, Helvetica, sans-serif;
+         }
+        .container {
+            width: 500px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+            
+
+         }
+         div > p {
+            color:black;
+         }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Título</h1>
+        <h1>Par ou Impar ?</h1>
     </header>
     <main>
-        <section>
+        <section class = "container">
             <div>
-                Qual é seu nome? <input type="text" name="nome" id="nome"><br>
-                Sua idade? <input type="text" name="idade" id="idade"><br>
-                <input type="button" value="Confirmar" onclick="confirmar()">
-
-                
+                <p>Escolha seus números : <input type="number" name="numeros" id="txtnum" placeholder="1,2, 3..."> <input type="button" value="Adicionar" onclick="adicionar()"></p> 
+                <p id="telanum"></p>
+                <input type="button" value="Analisar" onclick="analisar()">
             </div>
             <div id="res">
-
+               
             </div>
+
         </section>
+
     </main>
     <footer>
-        <p>&copy; CursoemVideo</p>
+        <p>&copy; Liger</p>
     </footer>
-    <script src="script.js"></script>
+
+
+    <script>
+        let res = document.querySelector('#res')
+        let telan = document.querySelector('#telanum')
+        let vet = []
+
+        function adicionar() {
+            let numeros = document.querySelector('#txtnum')
+            if(numeros.value.length == 0) {
+                alert('Digite um número')
+            }else {
+                vet.push(Number(numeros.value))
+                telan.innerHTML = vet
+                numeros.value = ""
+                numeros.focus()
+                
+            }
+        }
+        function analisar() {
+            if (vet.length == 0) {
+            alert('Adicione valores antes de analisar')
+            return
+            }
+            let pares = 0 
+            let impares = 0
+            for(let pos in vet) {
+                if(vet[pos]%2 == 0) {
+                    pares++
+                }else {
+                    impares++
+                }
+            }
+            res.innerHTML = `
+            <p>Total de valores: ${vet.length}</p>
+            <p>Pares: ${pares}</p>
+            <p>Ímpares: ${impares}</p>`
+
+            
+        }
+        
+
+    </script>
 </body>
 </html>
