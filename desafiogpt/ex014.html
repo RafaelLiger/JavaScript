@@ -56,7 +56,6 @@
         let res = document.querySelector('#res')
         let telan = document.querySelector('#telanum')
         let vet = []
-
         function adicionar() {
             let numeros = document.querySelector('#txtnum')
             if(numeros.value.length == 0) {
@@ -66,27 +65,42 @@
                 telan.innerHTML = vet
                 numeros.value = ""
                 numeros.focus()
-                
+
             }
+            
         }
         function analisar() {
             if (vet.length == 0) {
             alert('Adicione valores antes de analisar')
             return
             }
-            let pares = 0 
-            let impares = 0
+            let maior = vet[0]
+            let menor = vet[0]
+            let soma = 0
+            let media = 0
             for(let pos in vet) {
-                if(vet[pos]%2 == 0) {
-                    pares++
-                }else {
-                    impares++
+                soma += maior
+                if(vet[pos] >= maior) {
+                    maior = vet[pos]
+                    
                 }
+                if( vet[pos] <= menor) {
+                    menor =  vet[pos]
+                }
+                
+                    
+                
             }
+            media = soma/vet.length
+            
             res.innerHTML = `
             <p>Total de valores: ${vet.length}</p>
-            <p>Pares: ${pares}</p>
-            <p>Ímpares: ${impares}</p>`
+            <p>Maior: ${maior}</p>
+            <p>Menor: ${menor}</p>
+            <p>Soma: ${soma} </p>
+            <p>Media: ${media.toFixed(2)} </p>
+            `
+
 
             
         }
