@@ -74,25 +74,48 @@
             alert('Adicione valores antes de analisar')
             return
             }
-            pares = 0
-            impares = 0
+            let maior10 = 0
+            let menor10 = 0
+            let valmaior = vet[0]
+            let valmenor = vet[0]
+            let soma = 0
+            let media = 0
+            let qtdpar = 0
+            let qtdimpar = 0
             
             for(let pos in vet) {
-                if(vet[pos]%2 == 0) {
-                    pares++
-                    
-                }else {
-                    impares++
+                soma += vet[pos]
+                if(vet[pos] <= 10) {
+                    menor10++
+                }else{
+                    maior10++
+
                 }
-                
+                if (vet[pos] > valmaior) {
+                    valmaior = vet[pos]
+                }else if(vet[pos] < valmenor){
+                    valmenor = vet[pos]
+                }
+                if (vet[pos]%2 == 0) {
+                    qtdpar++
+                }else {
+                    qtdimpar++
+                }
                     
                 
             }
-            
+            media = soma / vet.length
             
             res.innerHTML = `
-                <p>Quantidades de pares: ${pares}</p>
-                <p>Quantidade de impares: ${impares}</p>
+                <p> Total de números: ${vet.length}</p>
+                <p> O maior valor foi: ${valmaior}</p>
+                <p>O menor valor foi : ${valmenor}</p>
+                <p>O valor da soma dos números foi de: ${soma}</p>
+                <p>O valor da média foi: ${media.toFixed(2)}</p>
+                <p>Quantidade de númeor pares: ${qtdpar}</p>
+                <p>Quantidade de números ímpares: ${qtdimpar}</p>
+                <p>Números <= 10: ${menor10}</p>
+                <p>Números maiores que 10 : ${maior10}</p>
 
             `
 
