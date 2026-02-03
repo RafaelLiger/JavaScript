@@ -74,31 +74,26 @@
             alert('Adicione valores antes de analisar')
             return
             }
-            let maior = vet[0]
-            let menor = vet[0]
-            let soma = 0
-            let media = 0
+            pares = 0
+            impares = 0
+            
             for(let pos in vet) {
-                soma += maior
-                if(vet[pos] >= maior) {
-                    maior = vet[pos]
+                if(vet[pos]%2 == 0) {
+                    pares++
                     
-                }
-                if( vet[pos] <= menor) {
-                    menor =  vet[pos]
+                }else {
+                    impares++
                 }
                 
                     
                 
             }
-            media = soma/vet.length
+            
             
             res.innerHTML = `
-            <p>Total de valores: ${vet.length}</p>
-            <p>Maior: ${maior}</p>
-            <p>Menor: ${menor}</p>
-            <p>Soma: ${soma} </p>
-            <p>Media: ${media.toFixed(2)} </p>
+                <p>Quantidades de pares: ${pares}</p>
+                <p>Quantidade de impares: ${impares}</p>
+
             `
 
 
