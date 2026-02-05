@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Avançado - Lista de Números</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #2f94ce;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            width: 350px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input, select, button {
+            width: 100%;
+            margin-top: 8px;
+            padding: 6px;
+            font-size: 14px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        #res {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h1>Lista de Números</h1>
+
+        <input type="number" id="txtnum" placeholder="Digite um número">
+
+        <button onclick="adicionar()">Adicionar</button>
+        <label for="txtista">Escolha uma opçao</label>
+        <select id="txtista" size="6"></select>
+
+        <button onclick="remover()">Remover selecionado</button>
+        <button onclick="limpar()">Limpar tudo</button>
+
+        <button onclick="analisar()">Analisar</button>
+
+        <div id="res"></div>
+    </div>
+        
+   
+    <script>
+        
+    </script>
+
+</body>
+</html>
