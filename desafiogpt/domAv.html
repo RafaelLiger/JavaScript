@@ -50,20 +50,47 @@
         <input type="number" id="txtnum" placeholder="Digite um número">
 
         <button onclick="adicionar()">Adicionar</button>
-        <label for="txtista">Escolha uma opçao</label>
-        <select id="txtista" size="6"></select>
+        <label for="txtlista">Escolha uma opçao</label>
+        <select id="txtlista" size="6"></select>
 
         <button onclick="remover()">Remover selecionado</button>
         <button onclick="limpar()">Limpar tudo</button>
 
-        <button onclick="analisar()">Analisar</button>
+       
 
         <div id="res"></div>
     </div>
-        
+    
    
     <script>
+
+        let select = document.querySelector('#txtlista')
+        let numero = document.querySelector('#txtnum')
         
+        function adicionar() {
+            
+            if (numero.value.length  == 0 ){ 
+                alert("Digite um número")
+                return;
+            }
+            let option = document.createElement("option")
+            option.value = numero.value
+            option.text = numero.value
+            select.appendChild(option)
+
+            numero.value = ""
+            numero.focus()
+        }
+        function remover() {
+            if (select.selectedIndex == -1){
+                alert('selecione um número para remover')
+                return
+            }
+            select.remove(select.selectedIndex)
+        }
+        function limpar() {
+            select.innerHTML = ""
+        }
     </script>
 
 </body>
