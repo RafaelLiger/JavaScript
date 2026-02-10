@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+<style>
+    body {
+        height:90vh;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgb(211, 191, 165);
+        color: white;
+    }
+    label {
+        background-image: linear-gradient(to right, rgb(226, 179, 109), rgb(140, 140, 172));
+        margin-bottom: 10px;
+        font-weight: bold;
+        border-radius: 10px;
+        padding: 5px;
+    }
+    input {
+        border-radius: 20px;
+    }
+    input#botao {
+        padding: 10px;
+    }
+    input#botao:hover {
+        background-color: rgb(224, 173, 33);
+        color:white;
+        transition: background-color .5s;
+        box-shadow:inset 2px 1px 4px 0px rgba(0, 0, 0, 0.384);
+    }
+</style>    
+</head>
+<body>
+    <label for="txtlogin">Login </label>
+    <input type="text" id="txtlogin"><br>
+    <label for="senha">Senha </label>
+    <input type="password" name="" id="senha"><br>
+
+    <input type="button" value="Entrar" id="botao" onclick="entrar()">
+
+    <div id="res"></div>
+
+<script>
+    function entrar() {
+        const login = document.querySelector("#txtlogin")
+        const senha = document.querySelector("#senha")
+        let res = document.querySelector("#res")
+        if(senha.value.length == 0 || login.value.length == 0) {
+            alert('Digite o login e a senha de acesso!')
+            return;
+        }
+        if (login.value == "admin" && senha.value == "1234") {
+            
+            res.innerHTML = "<p style = 'color:green'><strong>Entrando...</strong></p>"
+           
+        }else {
+            res.innerHTML = "<p style='color:red'><strong>Usuário não cadastrado.</strong></p>"
+        }
+        login.value = ""
+        senha.value = ""
+        login.focus()
+    }
+</script>    
+</body>
+</html>
