@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Pacifico&display=swap');
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(74, 84, 129);
+        }
+        header {
+            text-align: center;
+            color: white;
+            text-shadow:  7px 3px 13px rgba(0, 0, 0, 0.493);
+        }
+        header > h1 {
+            display: inline-block;
+            font-size: 80px;
+            animation: mexer 2s infinite alternate ;
+            width: 100vw;
+            position: relative;
+            padding-bottom: 80px;
+            
+        }
+        .sinal {
+            color:orange;
+            font-size: 120px;
+            font-family:"Nunito", sans-serif;
+            text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.527);
+        }
+        @keyframes mexer {
+            0% {
+                transform: translateX(0);
+                
+            }
+            50% {
+                transform: translateX(50px);
+            }
+            100% {
+                transform: translateX(-50px);
+            }
+        }
+        main {
+            display:flex;
+            flex-flow: row wrap;
+            justify-content: center;   
+        }
+        #formulario {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 5px 3px 17px 1px rgba(0, 0, 0, 0.274);
+            animation: crescer 1s infinite alternate;
+            
+            
+        }
+        @keyframes crescer {
+            from{
+                transform: scaleY(1.1);
+            }
+            to {
+                
+            }
+        }
+
+        label, input {
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        img {
+            display: block;
+            width: 400px;
+            height: 200px;
+
+            
+        }
+       #botao {
+            margin-top: 10px;
+            padding: 15px;
+            border-radius: 50%;
+            background-color: rgb(142, 56, 223);
+            color:white;
+            font-weight: bolder;
+            border: none;
+            transition: background-color .8s, padding .8s;
+            
+        }
+        #botao:hover{
+            background-color: orange;
+            padding: 30px;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="titulo">Passou<strong class="sinal">?</strong></h1>
+    </header>
+    <main>
+        <div id="formulario">
+            <label for="nome">Nome do <strong>aluno</strong>(a): </label>
+            <input type="text" id="nome" placeholder="Nome da peste" style="text-transform: capitalize;"><br>
+            <label for="nota1"><strong>Primeiro</strong> semestre: </label>
+            <input type="number" name="nota1" id="nota1" placeholder="Média do 1º semestre"><br>
+            <label for="nota2"><strong>Segundo</strong> semestre: </label>
+            <input type="number" name="nota2" id="nota2" placeholder="Média do 2º semestre"><br>
+            <input type="button" value="Calcular" id="botao" onclick="calcular()">
+            <div id="res">
+
+            </div>
+            <img src="https://cdnl.iconscout.com/lottie/premium/thumb/grafico-de-batimentos-cardiacos-9610565-7945765.gif" alt="batimentos cardiácos" id="batimento">
+            
+        </div>
+    </main>
+<script>
+    function calcular(){
+        const nome = document.querySelector('#nome')
+        let media1 = document.querySelector('#nota1')
+        let media2 = document.querySelector('#nota2')
+        let resul = document.querySelector('#res')
+        if (media1.value.length == 0 || media2.value.length == 0) {
+            alert('Digite todas as informações')
+            return
+        }
+        let mediatot = (Number(media1.value) + Number(media2.value)) / 2
+        if (mediatot < 5) {
+            resul.innerHTML = `<p style=\"text-transform: capitalize;\"><strong>${nome.value}</strong></p><p>Sua média foi <strong style=\"color: red\">${mediatot.toFixed(2)}</strong> você está <strong style=\"color: red\">REPROVADO(A)</strong></p>`
+            document.getElementById("formulario").style.animationPlayState = "paused";
+            document.getElementById("batimento").src = "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExazI3NXVreTkzYWFrb2s3ZmQxd3FxbHNzY3ZzcHVzZjE0amU3djd3bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YqE3jbSQQR6x9g19Kj/giphy.gif"
+            document.getElementById("titulo").textContent = "NÃO!"
+            document.getElementById("titulo").style = "color: red;"
+            document.getElementById("titulo").style.animationPlayState = "paused";
+        }else if (mediatot >=5 && mediatot < 7) {
+            resul.innerHTML = `<p style=\"text-transform: capitalize;\"><strong>${nome.value}</strong></p><p>Sua média foi <strong style=\"color: orange\">${mediatot.toFixed(2)}</strong> você está em <strong style=\"color: orange\">RECUPERAÇÃO(A)</strong></p>`
+            document.getElementById("formulario").style.animationPlayState = "paused";
+            document.getElementById("batimento").src = "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGR2NTFkZmdlNWZhZ3NudTQ5YTdvbnFnYXE5cjJ2eThsMDZleWhkZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DHw6uxU2WbJ3a/giphy.gif"
+            document.getElementById("titulo").textContent = "CUIDADO!"
+            document.getElementById("titulo").style = "color:orange;"
+            
+        }else {
+             resul.innerHTML = `<p style=\"text-transform: capitalize;\"><strong>${nome.value}</strong></p><p>Sua média foi <strong style=\"color: green\">${mediatot.toFixed(2)}</strong> você está <strong style=\"color: green\">APROVADO(A)</strong></p>`
+            document.getElementById("formulario").style.animationPlayState = "running";
+            document.getElementById("batimento").src = "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGg3NTJhdWo4eXZvaHZ5bjV0cm91Z2FydGV2dHZkOXhyNTRzOWN5dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/K3Sbp8fOgKye4/giphy.gif"
+            document.getElementById("titulo").textContent = "PARABÉNS!"
+            document.getElementById("titulo").style = "color: green;"
+            document.getElementById("titulo").style.animationPlayState = "running";
+        }
+        return
+    } 
+</script>
+</body>
+</html>
