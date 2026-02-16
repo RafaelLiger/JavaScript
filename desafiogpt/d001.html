@@ -40,11 +40,30 @@
         input {
             border-radius: 10px;
         }
+        a#link {
+            text-decoration: none;
+            font-weight: bolder;
+            font-family: Arial, Helvetica, sans-serif;
+            color: red;
+            display: inline-block;
+            animation : mexer 1s infinite alternate;
+        }
+        /*animação */
+        @keyframes mexer {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(20px);
+            }
+            }
+        
     </style>
 </head>
 <body>
     <header>
         <p>Calculadora de idade</p>
+        
     </header>
     <main>
        <section>
@@ -63,15 +82,32 @@
             const nome = document.querySelector('#nome')
             const nasc = document.querySelector('#nasc')
             let res = document.querySelector('#res')
-            let agora = new date()
-            agora = nasc.getHours()
-            
             
 
             if ( nome.value.length == 0 && nasc.value.length == 0){
                 alert('Digite um valor válido!')
+                return
             }
-           
+            const hoje = new Date()
+            const nascimento = new Date(nasc.value)
+            let idade = hoje.getFullYear() - nascimento.getFullYear()
+            if( hoje.getMonth() < nascimento.getMonth()) {
+                idade--
+            }
+            res.innerHTML = ` <p> Olá, <strong>${nome.value}</strong>!</p><p>Você tem <strong>${idade}</strong> anos.</P>`
+
+
+            if ( idade < 12) {
+                res.innerHTML = "<p>Classificação: <strong>Criança</strong> 👶🏻</p>"
+
+            }else if (idade >= 12 && idade < 18) {
+                res.innerHTML += "<p>Classificação: <strong>Adolecente</strong> 👦🏾</p>"
+            }else if (idade >= 18 && idade < 60) {
+                res.innerHTML += "<p>Classificação: <strong>Adulto</strong> 👩🏻‍🦰 <a href=\"https://i.pinimg.com/originals/2a/2f/a0/2a2fa0db3179d4b4ec39d1a8a1eeda7d.jpg?nii=t\" target=\"_blank\" id=\"link\">Clique aqui para ver seu signo </a> </p>"
+            }else {
+                res.innerHTML += "<p>Classificação: <strong>Idoso</strong> 👴🏼</p>"
+            }
+            return
         }
 
     </script>
