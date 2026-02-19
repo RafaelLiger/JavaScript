@@ -8,43 +8,85 @@
 </head>
 <body>
     <header>
-        <h1>Tabuada X</h1>
+        <h1>Lista</h1>
     </header>
     <main>
         <section>
-            <label for="numtabu">Número: <input type="number" name="num" id="numtabu"></label>
-            <input type="button" value="Calcular" onclick="calcular()">
-            <input type="button" value="Limpar" onclick="limpar()">
+            <label for="numeros">Números: <input type="number" name="numeros" id="numeros"></label>
+            <input type="button" value="Adicionar" onclick="adicionar()">
+            <input type="button" value="Mostrar" onclick="mostrar()">
+            <input type="button" value="Apagar Lista" onclick="apagar()">
+
             <div id="res">
 
             </div>
+
         </section>
     </main>
 <script>
-    //Não fiz regra para caixa fazia pois existe tabuada de zero e numeros negativos tbm são multiplicaveis
-    function calcular() {
-        let numero = document.querySelector('#numtabu')
-        let res  = document.querySelector('#res')
+    let res = document.querySelector('#res')
+    let numadd = []
 
-        let n = Number(numero.value)
-        let resp = 0
-        let c = 1
-        
-        do {
-            resp = n * c
-            res.innerHTML += `<p>${n} X ${c} <strong>:</strong> ${resp}</P><br>  `
-            c++
+    function numeroValido(n) {
+        if( n >= 1 && n <= 100){
+            return true
+        } else {
+            return false
+        }
 
-        }while(c <= 10) 
-        numero.value = ""
-        numero.focus()
-        res.innerHTML +="------------------------"
+    }
+    function jaExiste(n, numadd){
+        if (numadd.indexOf(n) != -1) {
+            return true
+        }else {
+            return false
+        }    
+    }
+
+    function adicionar() {
+        let num = document.querySelector('#numeros')
+        if(num.value.length == 0) {
+            alert('Digite um valor válido!')
+            return
+        } 
+        let n = Number(num.value)
+        if(numeroValido(n) && !jaExiste(n, numadd)) {
+            numadd.push(n)
+        }else {
+            alert('Valor Invalido ou já encontrado!')
+        }
+        num.value = ""
+        num.focus()
+         
     }
     
-    function limpar() {
+    function mostrar() {
+        if(numadd.length == 0 ) {
+            alert('Nenhum número foi adicionado')
+            return
+        }
+        let texto = ""
+        res.innerHTML = ""
+        for(let pos in numadd) {
+            if ( numadd[pos] % 2 == 0){
+                texto += `<p style=\"color:green\">${numadd[pos]}</p><br>`    
+            }else{
+                texto += `<p>${numadd[pos]}</p><br>`
+            } 
+        }
+        res.innerHTML = texto
+        
+    }
+    function apagar() {
+        if(numadd.length == 0){
+            alert('Nenhuma lista adicionada.')
+            return
+        }
+        numadd = []
         res.innerHTML = ""
 
     }
-</script>   
+    
+</script>    
 </body>
 </html>
