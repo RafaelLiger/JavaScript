@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilo/style.css">
+</head>
+<body>
+    <header>
+        <h1>Dados</h1>
+    </header>
+    <main>
+        <section>
+          <label for="nome">Nome: <input type="text" id="nometxt"></label><br>
+          <label for="nota">Nota: <input type="number" name="nota" id="notatxt"></label>
+          <input type="button" value="Adicionar" onclick="adicionar()">
+          <input type="button" value="Mostrar" onclick="mostrar()">
+
+          <div id="res">
+
+          </div>
+
+        </section>
+    </main>
+<script>
+    let res = document.querySelector('#res')
+    let name = document.querySelector('#nometxt')
+    let note = document.querySelector('#notatxt')
+    aluno = []
+    let texto = ""
+
+    function adicionar() {
+        let nome = String(name.value)
+        let nota = Number(note.value)
+        aluno += `<p>Nome: ${nome} Nota: ${nota}</p>`
+        
+        
+
+        
+    }
+    function mostrar() {
+        res.innerHTML = `${aluno}`
+    }
+    
+</script>    
+</body>
+</html>

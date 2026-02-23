@@ -15,8 +15,8 @@
             <label for="numeros">Números: <input type="number" name="numeros" id="numeros"></label>
             <input type="button" value="Adicionar" onclick="adicionar()">
             <input type="button" value="Mostrar" onclick="mostrar()">
+              <input type="button" value="Analisar" onclick="analisar()">
             <input type="button" value="Apagar Lista" onclick="apagar()">
-
             <div id="res">
 
             </div>
@@ -76,6 +76,35 @@
         }
         res.innerHTML = texto
         
+    }
+    function analisar() {
+       
+        let soma = 0
+        let media = 0
+        if(numadd.length == 0) {
+            alert("Sem lista para analisar!")
+            return
+        }    
+        let maior = numadd[0]
+        let menor = numadd[0]
+        res.innerHTML = ""
+        res.innerHTML += `Ao todo temos <strong>${numadd.length}</strong> números.<br>`
+        
+        for (let pos = 0; pos < numadd.length; pos++) {
+            if( numadd[pos] >  maior) {
+
+                maior = numadd[pos]
+            }
+            if(numadd[pos] <= menor ) {
+                menor = numadd[pos]
+            }
+            soma += numadd[pos]
+            
+            
+        }
+        media = soma / numadd.length
+        res.innerHTML += ` O maior Número digitado foi <strong>${maior}</strong><br>O menor número digitado foi <strong>${menor}</strong><br>Somando todos os números temos <strong>${soma}</strong><br>A média do total dos valores é de <strong>${media.toFixed(2)}</strong>`
+           
     }
     function apagar() {
         if(numadd.length == 0){
