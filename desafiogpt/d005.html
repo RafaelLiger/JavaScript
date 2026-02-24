@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="estilo/style.css">
+    
 </head>
 <body>
     <header>
@@ -12,10 +13,12 @@
     </header>
     <main>
         <section>
-          <label for="nome">Nome: <input type="text" id="nometxt"></label><br>
-          <label for="nota">Nota: <input type="number" name="nota" id="notatxt"></label>
-          <input type="button" value="Adicionar" onclick="adicionar()">
-          <input type="button" value="Mostrar" onclick="mostrar()">
+          <form action="">
+              <label for="nometxt">Nome: <input type="text"  id="nometxt" ></label><br>
+              <label for="notatxt">Nota: <input type="number" name="nota" id="notatxt"></label>
+              <input type="button" value="Adicionar" onclick="adicionar()">
+              <input type="button" value="Mostrar" onclick="mostrar()">
+          </form>
 
           <div id="res">
 
@@ -27,19 +30,44 @@
     let res = document.querySelector('#res')
     let name = document.querySelector('#nometxt')
     let note = document.querySelector('#notatxt')
-    aluno = []
-    let texto = ""
 
+    aluno = []
+   
+
+  
     function adicionar() {
+        if(name.value.length == 0 || note.value.length == 0) {
+            alert('Campo Nome ou Nota está vazio!')
+            return
+        }
+        
         let nome = String(name.value)
         let nota = Number(note.value)
-        aluno += `<p>Nome: ${nome} Nota: ${nota}</p>`
-        
-        
+        const regex = /^[A-Za-zÀ-ÿ\s]+$/ // valida o input somenta para letras e espaços
 
+        if(!regex.test(nome)) {
+            alert('Caracter inválido para campo "Nome:"')
+            return
+        }
+        name.value = ""
+        note.value = ""
+        name.focus()
+        aluno += "|---------------------------------------------------------------------| <br>"
+        if( nota >= 7) {
+           aluno += `Nome: <strong>${nome}</strong> | Nota: <strong style =\"color:green\">${nota.toFixed(2)}</strong> | Situação: <strong style =\"color: green\">APROVADO</strong></p>` 
+                
         
-    }
+        }else {
+            aluno += `Nome: <strong>${nome}</strong> | Nota: <strong style=\"color:red\">${nota.toFixed(2)}</strong> | Situação: <strong style =\"color: Red\">REPROVADO</strong></p>`
+                    
+        }
+        }
+        
     function mostrar() {
+        if(aluno.length == 0) {
+            alert('Nenhum aluno cadastrado!')
+            return
+        }
         res.innerHTML = `${aluno}`
     }
     
