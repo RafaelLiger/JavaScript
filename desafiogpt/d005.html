@@ -8,69 +8,76 @@
     
 </head>
 <body>
-    <header>
-        <h1>Dados</h1>
-    </header>
-    <main>
+   <header>
+        <h1>Mini calculadora</h1>
+   </header> 
+   <main>
         <section>
-          <form action="">
-              <label for="nometxt">Nome: <input type="text"  id="nometxt" ></label><br>
-              <label for="notatxt">Nota: <input type="number" name="nota" id="notatxt"></label>
-              <input type="button" value="Adicionar" onclick="adicionar()">
-              <input type="button" value="Mostrar" onclick="mostrar()">
-          </form>
+            <label for="nun1txt"> Número 1: <input type="text" id="num1txt"></label><br>
+            <label for="nun2txt"> Número 2: <input type="text" id="num2txt"></label>
+            <label for="operacao">🧮</label>
+            <select name="operacao" id="operacao" >
+                <option value="somar">+</option>
+                <option value="subtrair">-</option>
+                <option value="multiplicar">x</option>
+                <option value="dividir">÷</option>
+            </select>
+            <input type="button" value="Calcular" onclick="calcular()">
+            <div id="res">
 
-          <div id="res">
-
-          </div>
-
+            </div>
         </section>
-    </main>
+   </main>
+
 <script>
+    let num1 = document.querySelector('#num1txt')
+    let num2 = document.querySelector('#num2txt')
     let res = document.querySelector('#res')
-    let name = document.querySelector('#nometxt')
-    let note = document.querySelector('#notatxt')
-
-    aluno = []
-   
-
-  
-    function adicionar() {
-        if(name.value.length == 0 || note.value.length == 0) {
-            alert('Campo Nome ou Nota está vazio!')
-            return
+    let resultado = 0
+    
+    function somar(n1, n2){
+        return n1 + n2
+    }
+    function subtrair(n1, n2){
+        return n1 - n2
+    }
+    function multiplicar(n1, n2){
+        return n1 * n2
+    }
+    function dividir(n1, n2){
+        if(n2 == 0){
+            return "Não é possível dividir por 0"
         }
-        
-        let nome = String(name.value)
-        let nota = Number(note.value)
-        const regex = /^[A-Za-zÀ-ÿ\s]+$/ // valida o input somenta para letras e espaços
-
-        if(!regex.test(nome)) {
-            alert('Caracter inválido para campo "Nome:"')
-            return
-        }
-        name.value = ""
-        note.value = ""
-        name.focus()
-        aluno += "|---------------------------------------------------------------------| <br>"
-        if( nota >= 7) {
-           aluno += `Nome: <strong>${nome}</strong> | Nota: <strong style =\"color:green\">${nota.toFixed(2)}</strong> | Situação: <strong style =\"color: green\">APROVADO</strong></p>` 
-                
-        
-        }else {
-            aluno += `Nome: <strong>${nome}</strong> | Nota: <strong style=\"color:red\">${nota.toFixed(2)}</strong> | Situação: <strong style =\"color: Red\">REPROVADO</strong></p>`
-                    
-        }
-        }
-        
-    function mostrar() {
-        if(aluno.length == 0) {
-            alert('Nenhum aluno cadastrado!')
-            return
-        }
-        res.innerHTML = `${aluno}`
+        return n1 / n2
     }
     
-</script>    
+    function calcular() {
+        let n1 = Number(num1.value)
+        let n2 = Number(num2.value)
+        let operacao = document.querySelector('#operacao').value
+        console.log(operacao)
+
+        switch(operacao){
+            case "somar":
+                resultado = somar(n1, n2)
+                break
+            case "subtrair":
+                resultado = subtrair(n1, n2)
+                break
+            case "multiplicar":
+                resultado = multiplicar(n1, n2)
+                break
+            case "dividir":
+                resultado = dividir(n1, n2)
+                break
+            default:
+                resultado = "Operação inválida"
+                break        
+        }
+    res.textContent = `${resultado}`    
+    }
+    
+
+</script>   
 </body>
 </html>
