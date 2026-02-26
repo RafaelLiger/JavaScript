@@ -34,7 +34,13 @@
     let num2 = document.querySelector('#num2txt')
     let res = document.querySelector('#res')
     let resultado = 0
-    
+    function validar(n1, n2){
+        if(isNaN(n1) || isNaN(n2)) {
+            return false
+        }else{
+            return true
+        }
+    }
     function somar(n1, n2){
         return n1 + n2
     }
@@ -56,6 +62,12 @@
         let n2 = Number(num2.value)
         let operacao = document.querySelector('#operacao').value
         console.log(operacao)
+
+        if(!validar(n1, n2)){
+            res.textContent = "Caractere inválido!"
+            return
+
+        }
 
         switch(operacao){
             case "somar":
