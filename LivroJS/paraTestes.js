@@ -1,3 +1,2 @@
-let x = .3 - .2
-let y = .2 - .1;
-console.log(y)
+console.log("olá mundo")
+
