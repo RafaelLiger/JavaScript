@@ -1,2 +1,1 @@
-console.log("olá mundo")
-
+let s = 
