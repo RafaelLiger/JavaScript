@@ -1,2 +1,2 @@
-let  x = "10";
+let x = Number([1]) + 1;
 console.log(x)
