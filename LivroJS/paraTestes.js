@@ -1,4 +1,6 @@
+"use strict"; 
 
 
-console.log(x);
 let x = 2;
+h = 3;
+console.log(h);
