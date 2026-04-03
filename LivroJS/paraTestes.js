@@ -1,6 +1,6 @@
-"use strict"; 
+let o = { x: 1, y: 2 }; 
 
+for(const [name, value] of Object.entries(o)) {
+    console.log(name, value);  // Imprime "x 1" e "y 2" 
 
-let x = 2;
-h = 3;
-console.log(h);
+}
