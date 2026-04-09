@@ -12,18 +12,16 @@
 <script>
    let a = Number(prompt("cateto 1"))
    let b = Number(prompt("cateto 2"))
-   function hipotenusa(c1, c2){
-     
-
-
+   let hipotenusa = (c1, c2) =>{
       if (c1 >= 0 && c2 >= 0){
          return Math.sqrt((c1**2) + (c2**2))
       }else{
          return document.write("Impossivel calcular!")
       }
    }
-  let h = hipotenusa(a, b)
-   document.write(h.toFixed(2))
+   
+   document.write(hipotenusa(a, b).toFixed(2))
+   document.write("<hr>")
 
 
    
