@@ -1,27 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+   
 </head>
 <body>
  
 
 <script>
-   let a = Number(prompt("cateto 1"))
-   let b = Number(prompt("cateto 2"))
-   let hipotenusa = (c1, c2) =>{
-      if (c1 >= 0 && c2 >= 0){
-         return Math.sqrt((c1**2) + (c2**2))
-      }else{
-         return document.write("Impossivel calcular!")
-      }
-   }
-   
-   document.write(hipotenusa(a, b).toFixed(2))
-   document.write("<hr>")
+  function finalizar(){
+      console.log("Tarefa concluida")
+  }
+  function fazerTarefa(callback){
+      console.log("Executando tarefa")
+      callback()
+  }
+  fazerTarefa(finalizar)
 
 
    
