@@ -10,17 +10,21 @@
  
 
 <script>
-  function finalizar(){
-      console.log("Tarefa concluida")
-  }
-  function fazerTarefa(callback){
-      console.log("Executando tarefa")
-      callback()
-  }
-  fazerTarefa(finalizar)
+ class Aluno {
+    aprovado =false
 
+    constructor(nome, idade){
+        this.nome = nome
+        this.idade = idade
 
-   
+    
+    }
+    
+ }
+ let a = new Aluno("Rafael", 30)
+ let b = new Aluno("Bruno", 25)
+ console.log(a)
+  console.log(b)
 </script>
 </body>
 </html>
