@@ -10,21 +10,29 @@
  
 
 <script>
- class Aluno {
-    aprovado =false
 
-    constructor(nome, idade){
-        this.nome = nome
-        this.idade = idade
+const a = [
+    {
+        "crianca" : 10,
+        "joven" : function(){
+            return "joven" + "<br>"
+        }
+    },
+    "Azul"
+]
+const b = {
+    "nome" : [
+        "Edu",
+        function(){
+            return "Rafael"
+        }
+    ],
+    "idade": 25
+}
 
-    
-    }
-    
- }
- let a = new Aluno("Rafael", 30)
- let b = new Aluno("Bruno", 25)
- console.log(a)
-  console.log(b)
+document.write(a[0].joven(), b.nome[1]())
+console.log(a)
+console.log(b)
 </script>
 </body>
 </html>
