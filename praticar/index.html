@@ -10,9 +10,9 @@
 </head>
 <body>
         
-        <input type="button" value="botao 1" class="formata" style="font-family: Georgia;">
-        <input type="button" value="botao 2" class="formata" style="font-family: Georgia;">
-        <input type="button" value="botao 3" class="formata" style="font-family: Georgia;">
+        <input type="button" id="um" value="botao 1" class="formata" style="font-family: Georgia;">
+        <input type="button" id= "dois" value="botao 2" class="formata" style="font-family: Georgia;">
+        <input type="button" id="tres" value="botao 3" class="formata" style="font-family: Georgia;">
         <p id="texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi quam ipsa, perferendis hic fuga amet culpa distinctio perspiciatis laudantium illum est quaerat? Quaerat aliquid fuga voluptatem hic? Totam, impedit porro?</p>
          <p id="texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi quam ipsa, perferendis hic fuga amet culpa distinctio perspiciatis laudantium illum est quaerat? Quaerat aliquid fuga voluptatem hic? Totam, impedit porro?</p>
     
@@ -20,14 +20,9 @@
 
 <script>
     
-   let caixas = document.getElementsByTagName("input")
-    console.log(caixas)
-    caixas[2].addEventListener('click', ()=>{
-        let paragrafo = document.getElementsByTagName('p')
-        paragrafo[1].innerHTML = "oi"
-        console.log(paragrafo)
-    })
-    
+   let caixas = document.querySelectorAll("input")
+    console.log(caixas[2].value.split(" ")[1])
+   
 </script>
 </body>
 </html>
