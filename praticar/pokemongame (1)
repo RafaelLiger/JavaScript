@@ -1,0 +1,104 @@
+class Pokemon {
+  constructor(name, type, spatk, attack, atkSpd, defense) {
+    this.name = name;
+    this.type = type;
+    this.spatk = spatk;
+    this.life = 100;
+    this.attack = attack;
+    this.atkSpd = atkSpd;
+    this.defense = defense;
+    this.turn = true;
+  }
+
+  display() {
+    console.log(
+      `Name: ${this.name}, Type: ${this.type}, spatk: ${this.spatk}, attack: ${this.attack}, atkSpd: ${this.atkSpd}. `
+    );
+  }
+}
+
+function whoIsFirst(pokemon1, pokemon2) {
+  if (pokemon1.atkSpd > pokemon2.atkSpd) {
+    pokemon1.turn = true;
+    pokemon2.turn = false;
+    console.log(`${pokemon1.name} is faster and starts first`);
+  } else if (pokemon1.atkSpd < pokemon2.atkSpd) {
+    pokemon1.turn = false;
+    pokemon2.turn = true;
+    console.log(`${pokemon2.name} is faster and starts first`);
+  }
+}
+
+const pkmName = "Pikachu";
+const pkmType = "electric";
+const pkmSpatk = "Thunderbolt";
+const attack = 5;
+const defense = 3;
+const atkSpd = 20;
+
+const pkmName2 = "Charizard";
+const pkmType2 = "Fire";
+const pkmSpatk2 = "Flamethrower";
+const atk2 = 12;
+const defense2 = 3;
+const atkSpd2 = 19;
+
+const pokemon1 = new Pokemon(
+  pkmName,
+  pkmType,
+  pkmSpatk,
+  attack,
+  atkSpd,
+  defense
+);
+const pokemon2 = new Pokemon(
+  pkmName2,
+  pkmType2,
+  pkmSpatk2,
+  atk2,
+  atkSpd2,
+  defense2
+);
+
+pokemon1.display();
+pokemon2.display();
+
+function pkmBattle(pokemon1, pokemon2, whoIsFirst) {
+  let attackDmg;
+
+  whoIsFirst(pokemon1, pokemon2);
+
+  while (pokemon1.life > 0 && pokemon2.life > 0) {
+    if (pokemon1.turn) {
+      attackDmg = pokemon1.attack - pokemon2.defense;
+      pokemon2.life -= attackDmg;
+      pokemon1.turn = !pokemon1.turn;
+      pokemon2.turn = !pokemon2.turn;
+      console.log(
+        `${pokemon1.name} attacked ${pokemon2.name} with ${pokemon1.spatk} and dealt ${attackDmg} lifepoints!`
+      );
+      console.log(`${pokemon2.name} still has ${pokemon2.life} lifepoints!`);
+      if (pokemon2.life < 1) {
+        console.log(`${pokemon1.name} wins!`);
+        console.log(`${pokemon1.name} still has ${pokemon1.life} lifepoints!`);
+        break;
+      }
+    } else if (pokemon2.turn) {
+      attackDmg = pokemon2.attack - pokemon1.defense;
+      pokemon1.life -= attackDmg;
+      pokemon1.turn = !pokemon1.turn;
+      pokemon2.turn = !pokemon2.turn;
+      console.log(
+        `${pokemon2.name} attacked ${pokemon1.name} with ${pokemon2.spatk} and dealt ${attackDmg} lifepoints!`
+      );
+      console.log(`${pokemon1.name} still has ${pokemon1.life} lifepoints!`);
+      if (pokemon1.life < 1) {
+        console.log(`${pokemon2.name} wins!`);
+        console.log(`${pokemon2.name} still has ${pokemon2.life} lifepoints!`);
+        break;
+      }
+    }
+  }
+}
+
+pkmBattle(pokemon1, pokemon2, whoIsFirst);

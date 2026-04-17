@@ -1,28 +1,140 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-       
-    </style>
-</head>
-<body>
-        
-        <input type="button" id="um" value="botao 1" class="formata" style="font-family: Georgia;">
-        <input type="button" id= "dois" value="botao 2" class="formata" style="font-family: Georgia;">
-        <input type="button" id="tres" value="botao 3" class="formata" style="font-family: Georgia;">
-        <p id="texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi quam ipsa, perferendis hic fuga amet culpa distinctio perspiciatis laudantium illum est quaerat? Quaerat aliquid fuga voluptatem hic? Totam, impedit porro?</p>
-         <p id="texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi quam ipsa, perferendis hic fuga amet culpa distinctio perspiciatis laudantium illum est quaerat? Quaerat aliquid fuga voluptatem hic? Totam, impedit porro?</p>
-    
+<meta charset="UTF-8">
+<title>Jogo da Memória</title>
 
+<style>
+body {
+  background: #1e1e2f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.tabuleiro {
+  display: grid;
+  grid-template-columns: repeat(4, 120px);
+  gap: 15px;
+}
+
+.carta {
+  width: 120px;
+  height: 160px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  cursor: pointer;
+}
+
+.carta.virada {
+  transform: rotateY(180deg);
+}
+
+.face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 12px;
+}
+
+/* FRENTE (imagem) */
+.frente {
+  transform: rotateY(180deg);
+}
+
+.frente img {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+/* VERSO */
+.verso {
+  background: linear-gradient(135deg, #2a2a72, #009ffd);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="tabuleiro" id="tabuleiro"></div>
 
 <script>
-    
-   let caixas = document.querySelectorAll("input")
-    console.log(caixas[2].value.split(" ")[1])
-   
+const imagens = [
+  "img/img1.png",
+  "img/img2.png",
+  "img/img3.png",
+  "img/img4.png"
+];
+
+// duplicar (pares)
+let cartasArray = [...imagens, ...imagens];
+
+// embaralhar
+cartasArray.sort(() => Math.random() - 0.5);
+
+const tabuleiro = document.getElementById("tabuleiro");
+
+let primeiraCarta = null;
+let segundaCarta = null;
+let travar = false;
+
+// criar cartas
+cartasArray.forEach((img) => {
+  const carta = document.createElement("div");
+  carta.classList.add("carta");
+
+  carta.innerHTML = `
+    <div class="face frente">
+      <img src="${img}">
+    </div>
+    <div class="face verso">?</div>
+  `;
+
+  carta.addEventListener("click", () => {
+    if (travar) return;
+    if (carta === primeiraCarta) return;
+
+    carta.classList.add("virada");
+
+    if (!primeiraCarta) {
+      primeiraCarta = carta;
+      return;
+    }
+
+    segundaCarta = carta;
+    travar = true;
+
+    const img1 = primeiraCarta.querySelector("img").src;
+    const img2 = segundaCarta.querySelector("img").src;
+
+    if (img1 === img2) {
+      primeiraCarta = null;
+      segundaCarta = null;
+      travar = false;
+    } else {
+      setTimeout(() => {
+        primeiraCarta.classList.remove("virada");
+        segundaCarta.classList.remove("virada");
+
+        primeiraCarta = null;
+        segundaCarta = null;
+        travar = false;
+      }, 1000);
+    }
+  });
+
+  tabuleiro.appendChild(carta);
+});
 </script>
+
 </body>
 </html>
