@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Faz o site se adaptar ao celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Criador de Avatar</title>
+
+  <!-- Importa o CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Título da página -->
+    <h1>Criador de Avatar</h1>
+
+    <!-- Área do avatar -->
+    <div class="avatar">
+
+      <!-- Cabelo (vamos manipular com JS depois) -->
+      <div class="cabelo" id="cabelo"></div>
+
+      <!-- Rosto -->
+      <div class="rosto">
+
+        <!-- Olhos -->
+        <div class="olhos">
+          <div class="olho"></div>
+          <div class="olho"></div>
+        </div>
+
+        <!-- humor -->
+        <div class="humor"></div>
+
+      </div>
+    </div>
+
+    <!-- Área de controles (botões) -->
+    <div class="controles">
+
+      <!-- Tipo de cabelo -->
+      <h2>Cabelo</h2>
+
+      <!-- data-* serve pra você pegar no JavaScript -->
+      <button data-cabelo="curto">Curto</button>
+      <button data-cabelo="longo">Longo</button>
+      <button data-cabelo="careca">Careca</button>
+
+      <!-- Cor do cabelo -->
+      <h2 class="hide">Cor do Cabelo <br><br>
+
+      <button data-cor="black">Preto</button>
+      <button data-cor="brown">Castanho</button>
+      <button data-cor="yellow">Loiro</button>
+      </h2>
+      <!-- Tipo de boca -->
+      <h2>Humor</h2>
+
+      <button data-humor="feliz">Feliz</button>
+      <button data-humor="triste">Triste</button>
+
+    </div>
+  </div>
+
+  <!-- Seu JavaScript (você vai criar depois) -->
+  <script src="script.js"></script>
+</body>
+</html>

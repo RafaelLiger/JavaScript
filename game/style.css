@@ -1,0 +1,84 @@
+/* Estilo geral da página */
+body {
+  font-family: Arial, sans-serif; /* Fonte */
+  background: #222; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  text-align: center; /* Centraliza texto */
+}
+
+/* Container principal */
+.container {
+  margin-top: 30px;
+}
+
+/* Área do avatar */
+.avatar {
+  position: relative; /* Permite posicionar elementos dentro */
+  width: 200px;
+  height: 200px;
+  margin: 20px auto; /* Centraliza */
+}
+
+/* Rosto */
+.rosto {
+  width: 150px;
+  height: 150px;
+  background: #f2c9a0; /* Cor da pele */
+  border-radius: 50%; /* Faz virar um círculo */
+  position: absolute;
+  bottom: 0; /* Gruda embaixo */
+  left: 25px; /* Centraliza horizontalmente */
+}
+
+/* Cabelo */
+.cabelo {
+  width: 150px;
+  height: 80px;
+  background:black; /* Cor padrão */
+  border-radius: 80px 80px 0 0; /* Arredonda em cima */
+  position: absolute;
+  top: 0;
+  left: 25px;
+}
+
+/* Container dos olhos */
+.olhos {
+  display: flex; /* Coloca lado a lado */
+  justify-content: space-around; /* Espaço entre eles */
+  margin-top: 50px;
+}
+
+/* Cada olho */
+.olho {
+  width: 20px;
+  height: 20px;
+  background: black;
+  border-radius: 50%; /* Olho redondo */
+}
+
+/* Boca */
+.humor {
+  width: 45px;
+  height: 20px;
+  border-bottom: 3px solid black; /* Linha da boca */
+  margin: 20px auto;
+  border-radius: 10%;
+}
+
+/* Botões */
+button {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  cursor: pointer; /* Muda o cursor */
+  border-radius: 5px;
+}
+button.hide{
+   margin-top: 10px;
+}
+
+/* Efeito quando passa o mouse */
+button:hover {
+  background: #555;
+  color: white;
+}
