@@ -1,0 +1,18 @@
+@charset " RTF-8";
+
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    
+}
+#entrada {
+    border-radius: 20px;
+    width: 200px;
+}
+.botao{
+    margin: 20px;
+    width: 100px;
+}
+.res {
+    margin-top: 20px;
+}
