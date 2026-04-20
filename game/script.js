@@ -54,12 +54,12 @@ document.querySelectorAll('[data-humor]').forEach(btn =>{
             case "feliz":
                 h.style.borderRadius = "50%"
                 h.style.transform = "rotate(0deg)"
-                rosto.style.background = "#f2c9a0"
+
                 break;
             case "triste":
                 h.style.borderRadius = "50%"
                 h.style.transform = "rotate(-178deg)"
-                rosto.style.background = "saddlebrown"
+                
 
                 break;    
         
