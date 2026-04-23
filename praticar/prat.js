@@ -1,5 +1,3 @@
-let arr = [1, 2, 3];
-
-arr[6] = 99;
-
-console.log(arr.length);
+for(let i = 0; i< 11; i++){
+    console.log(i)
+}
